@@ -46,17 +46,24 @@
                 </div>
                 <div class="hero-form">
                     <h3>免费获取学历方案</h3>
-                    <form class="consultation-form">
-                        <input type="text" placeholder="姓名" required>
-                        <input type="tel" placeholder="手机号" required>
-                        <select required>
-                            <option value="">选择学历层次</option>
-                            <option value="高起专">高起专</option>
-                            <option value="专升本">专升本</option>
-                            <option value="高起本">高起本</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary" id="submitFormBtn">立即获取</button>
-                    </form>
+                    <div class="consultation-card">
+                        <p class="card-description">专业学历提升咨询服务，为您量身定制最适合的学历提升方案</p>
+                        <div class="service-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>一对一专业指导</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>免费方案制定</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>快速获取证书</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-large consultation-btn">立即咨询</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,33 +72,38 @@
     <!-- 服务优势 -->
     <section class="advantages">
         <div class="container">
-            <div class="advantages-grid">
-                <div class="advantage-item">
+            <div class="advantages-container">
+                <!-- 主卡片 - 四大学历提升方式 -->
+                <div class="main-advantage-card">
                     <div class="advantage-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <h3>四大学历提升方式</h3>
                     <p>自考、成考、网教、国开多种方式任您选择</p>
                 </div>
-                <div class="advantage-item">
-                    <h3>自学考试</h3>
-                    <p>含金量高，社会认可度高，学习时间灵活</p>
-                    <button class="btn btn-outline">了解详情</button>
-                </div>
-                <div class="advantage-item">
-                    <h3>成人高考</h3>
-                    <p>入学相对简单，学习方式灵活，费用较低</p>
-                    <button class="btn btn-outline">了解详情</button>
-                </div>
-                <div class="advantage-item">
-                    <h3>网络教育</h3>
-                    <p>学习方式灵活，不受时间地点限制</p>
-                    <button class="btn btn-outline">了解详情</button>
-                </div>
-                <div class="advantage-item">
-                    <h3>国家开放大学</h3>
-                    <p>免试入学，学制短，拿证快</p>
-                    <button class="btn btn-outline">了解详情</button>
+
+                <!-- 子卡片网格 -->
+                <div class="sub-advantages-grid">
+                    <div class="advantage-item">
+                        <h3>自学考试</h3>
+                        <p>含金量高，社会认可度高，学习时间灵活</p>
+                        <button class="btn btn-outline">了解详情</button>
+                    </div>
+                    <div class="advantage-item">
+                        <h3>成人高考</h3>
+                        <p>入学相对简单，学习方式灵活，费用较低</p>
+                        <button class="btn btn-outline">了解详情</button>
+                    </div>
+                    <div class="advantage-item">
+                        <h3>网络教育</h3>
+                        <p>学习方式灵活，不受时间地点限制</p>
+                        <button class="btn btn-outline">了解详情</button>
+                    </div>
+                    <div class="advantage-item">
+                        <h3>国家开放大学</h3>
+                        <p>免试入学，学制短，拿证快</p>
+                        <button class="btn btn-outline">了解详情</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -231,19 +243,16 @@
             <h2 class="section-title">2025年热门院校及专业推荐</h2>
             <div class="universities-grid">
                 <div class="university-item">
-                    <img src="images/university1.jpg" alt="华南理工大学">
                     <h3>华南理工大学</h3>
                     <p>国家重点大学，工科实力强劲</p>
                     <button class="btn btn-primary">查看招生简章</button>
                 </div>
                 <div class="university-item">
-                    <img src="images/university2.jpg" alt="暨南大学">
                     <h3>暨南大学</h3>
                     <p>综合性重点大学，专业齐全</p>
                     <button class="btn btn-primary">查看招生简章</button>
                 </div>
                 <div class="university-item">
-                    <img src="images/university3.jpg" alt="华南师范大学">
                     <h3>华南师范大学</h3>
                     <p>师范类重点大学，教育学专业优势明显</p>
                     <button class="btn btn-primary">查看招生简章</button>

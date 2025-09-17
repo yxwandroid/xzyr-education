@@ -3,7 +3,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // 获取DOM元素
-    const submitFormBtn = document.getElementById('submitFormBtn');
     const contactModal = document.getElementById('contactModal');
     const qrcodeModal = document.getElementById('qrcodeModal');
     const closeModal = document.getElementById('closeModal');
@@ -11,54 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const wechatOption = document.getElementById('wechatOption');
     const qqOption = document.getElementById('qqOption');
     const emailOption = document.getElementById('emailOption');
-    const consultationForm = document.querySelector('.consultation-form');
-
-    // 表单提交处理
-    if (submitFormBtn && consultationForm) {
-        consultationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // 获取表单数据
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
-            const education = this.querySelector('select').value;
-
-            // 简单验证
-            if (!name.trim()) {
-                showMessage('请填写您的姓名', 'error');
-                return;
-            }
-
-            if (!phone.trim()) {
-                showMessage('请填写您的手机号', 'error');
-                return;
-            }
-
-            if (!education) {
-                showMessage('请选择学历层次', 'error');
-                return;
-            }
-
-            // 验证手机号格式
-            const phoneRegex = /^1[3-9]\d{9}$/;
-            if (!phoneRegex.test(phone)) {
-                showMessage('请填写正确的手机号格式', 'error');
-                return;
-            }
-
-            // 存储用户信息
-            localStorage.setItem('userInfo', JSON.stringify({
-                name: name,
-                phone: phone,
-                education: education,
-                timestamp: new Date().toISOString()
-            }));
-
-            // 显示联系方式选择弹窗
-            showContactModal();
-        });
-    }
 
     // 显示联系方式选择弹窗
     function showContactModal() {
@@ -173,19 +124,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // 记录用户选择
             trackUserAction('contact_method', 'email');
 
-            const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
             const email = 'info@xuezyr.com';
             const subject = encodeURIComponent('学历提升咨询');
-            const body = encodeURIComponent(`您好，我是${userInfo.name || ''}，
+            const body = encodeURIComponent(`您好！
 
-我想了解学历提升相关信息：
-- 姓名：${userInfo.name || ''}
-- 手机：${userInfo.phone || ''}
-- 意向学历层次：${userInfo.education || ''}
+我想了解学历提升相关信息，请为我提供详细的学历提升方案和相关信息。
 
-请为我提供详细的学历提升方案和相关信息。
-
-谢谢！`);
+期待您的回复，谢谢！`);
 
             const mailtoUrl = `mailto:${email}?subject=${subject}&body=${body}`;
 
@@ -345,6 +290,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const clickableButtons = [
         // 主横幅按钮
         '.hero-buttons .btn',
+        // 主横幅咨询按钮
+        '.consultation-btn',
         // 服务优势按钮
         '.advantage-item .btn',
         // 教育类型按钮
@@ -385,6 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 获取按钮类型用于数据追踪
     function getButtonType(button) {
         if (button.closest('.hero-buttons')) return 'hero_button';
+        if (button.classList.contains('consultation-btn')) return 'hero_consultation';
         if (button.closest('.advantage-item')) return 'advantage_button';
         if (button.closest('.education-item')) return 'education_button';
         if (button.closest('.major-category')) return 'major_button';

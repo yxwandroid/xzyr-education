@@ -19,10 +19,14 @@
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link active">首页</a></li>
-                    <li><a href="#courses" class="nav-link">课程中心</a></li>
+                    <li><a href="#certificates" class="nav-link">资格证书</a></li>
                     <li><a href="#about" class="nav-link">关于我们</a></li>
                     <li><a href="#contact" class="nav-link">联系我们</a></li>
                 </ul>
+                <div class="nav-buttons">
+                    <button class="btn btn-outline-primary nav-btn">在线咨询</button>
+                    <button class="btn btn-primary nav-btn">免费试听</button>
+                </div>
                 <div class="nav-toggle">
                     <span></span>
                     <span></span>
@@ -62,7 +66,26 @@
                                 <span>快速获取证书</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-large consultation-btn">立即咨询</button>
+                        <form id="consultationForm" class="consultation-form">
+                            <div class="form-group">
+                                <input type="text" id="userName" name="userName" placeholder="请输入您的姓名" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="userPhone" name="userPhone" placeholder="请输入您的手机号" required>
+                                <span class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <select id="educationLevel" name="educationLevel" required>
+                                    <option value="">选择学历层次</option>
+                                    <option value="高起专">高起专</option>
+                                    <option value="专升本">专升本</option>
+                                    <option value="高起本">高起本</option>
+                                </select>
+                                <span class="error-message"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-large consultation-btn">立即获取</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -112,7 +135,7 @@
     <!-- 学历提升方式 -->
     <section id="courses" class="education-types">
         <div class="container">
-            <h2 class="section-title">本地次成人学历提升模式开放</h2>
+            <h2 class="section-title">本次成人学历提升模式开放</h2>
             <div class="education-grid">
                 <div class="education-item">
                     <div class="education-icon orange">
@@ -191,7 +214,7 @@
     <!-- 热门专业 -->
     <section class="popular-majors">
         <div class="container">
-            <h2 class="section-title">2025年热门专业及专业招牌</h2>
+            <h2 class="section-title">2025年热门专业</h2>
             <div class="majors-grid">
                 <div class="major-category">
                     <h3 class="category-title">管理类</h3>
@@ -241,21 +264,248 @@
     <section class="partner-universities">
         <div class="container">
             <h2 class="section-title">2025年热门院校及专业推荐</h2>
-            <div class="universities-grid">
-                <div class="university-item">
-                    <h3>华南理工大学</h3>
-                    <p>国家重点大学，工科实力强劲</p>
-                    <button class="btn btn-primary">查看招生简章</button>
+            <div class="universities-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-wrapper">
+                        <!-- 华南理工大学 -->
+                        <div class="university-slide active">
+                            <div class="university-card">
+                                <div class="university-header">
+                                    <h3>华南理工大学</h3>
+                                    <span class="university-tag">985/211</span>
+                                </div>
+                                <div class="university-content">
+                                    <div class="university-info">
+                                        <p class="university-desc">国家重点大学，工科实力强劲</p>
+                                        <div class="majors-list">
+                                            <h4>热门专业：</h4>
+                                            <div class="major-tags">
+                                                <span class="major-tag">计算机科学与技术</span>
+                                                <span class="major-tag">电气工程及其自动化</span>
+                                                <span class="major-tag">机械设计制造及其自动化</span>
+                                                <span class="major-tag">土木工程</span>
+                                                <span class="major-tag">工商管理</span>
+                                                <span class="major-tag">材料科学与工程</span>
+                                            </div>
+                                        </div>
+                                        <div class="university-features">
+                                            <div class="feature-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>学制：2.5年</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>学习形式：业余/函授</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-medal"></i>
+                                                <span>学位证书：可申请学士学位</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="university-footer">
+                                    <button class="btn btn-primary">查看招生简章</button>
+                                    <button class="btn btn-outline">专业咨询</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 华南师范大学 -->
+                        <div class="university-slide">
+                            <div class="university-card">
+                                <div class="university-header">
+                                    <h3>华南师范大学</h3>
+                                    <span class="university-tag">211</span>
+                                </div>
+                                <div class="university-content">
+                                    <div class="university-info">
+                                        <p class="university-desc">师范类重点大学，教育学专业优势明显</p>
+                                        <div class="majors-list">
+                                            <h4>热门专业：</h4>
+                                            <div class="major-tags">
+                                                <span class="major-tag">学前教育</span>
+                                                <span class="major-tag">小学教育</span>
+                                                <span class="major-tag">汉语言文学</span>
+                                                <span class="major-tag">英语</span>
+                                                <span class="major-tag">行政管理</span>
+                                                <span class="major-tag">人力资源管理</span>
+                                            </div>
+                                        </div>
+                                        <div class="university-features">
+                                            <div class="feature-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>学制：2.5年</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>学习形式：业余/函授</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-medal"></i>
+                                                <span>学位证书：可申请学士学位</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="university-footer">
+                                    <button class="btn btn-primary">查看招生简章</button>
+                                    <button class="btn btn-outline">专业咨询</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 暨南大学 -->
+                        <div class="university-slide">
+                            <div class="university-card">
+                                <div class="university-header">
+                                    <h3>暨南大学</h3>
+                                    <span class="university-tag">211</span>
+                                </div>
+                                <div class="university-content">
+                                    <div class="university-info">
+                                        <p class="university-desc">综合性重点大学，专业齐全</p>
+                                        <div class="majors-list">
+                                            <h4>热门专业：</h4>
+                                            <div class="major-tags">
+                                                <span class="major-tag">工商管理</span>
+                                                <span class="major-tag">会计学</span>
+                                                <span class="major-tag">金融学</span>
+                                                <span class="major-tag">法学</span>
+                                                <span class="major-tag">汉语言文学</span>
+                                                <span class="major-tag">护理学</span>
+                                            </div>
+                                        </div>
+                                        <div class="university-features">
+                                            <div class="feature-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>学制：2.5年</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>学习形式：业余/函授</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-medal"></i>
+                                                <span>学位证书：可申请学士学位</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="university-footer">
+                                    <button class="btn btn-primary">查看招生简章</button>
+                                    <button class="btn btn-outline">专业咨询</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 广东财经大学 -->
+                        <div class="university-slide">
+                            <div class="university-card">
+                                <div class="university-header">
+                                    <h3>广东财经大学</h3>
+                                    <span class="university-tag">省重点</span>
+                                </div>
+                                <div class="university-content">
+                                    <div class="university-info">
+                                        <p class="university-desc">财经类特色大学，经管专业优势突出</p>
+                                        <div class="majors-list">
+                                            <h4>热门专业：</h4>
+                                            <div class="major-tags">
+                                                <span class="major-tag">会计学</span>
+                                                <span class="major-tag">金融学</span>
+                                                <span class="major-tag">工商管理</span>
+                                                <span class="major-tag">市场营销</span>
+                                                <span class="major-tag">人力资源管理</span>
+                                                <span class="major-tag">电子商务</span>
+                                            </div>
+                                        </div>
+                                        <div class="university-features">
+                                            <div class="feature-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>学制：2.5年</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>学习形式：业余/函授</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-medal"></i>
+                                                <span>学位证书：可申请学士学位</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="university-footer">
+                                    <button class="btn btn-primary">查看招生简章</button>
+                                    <button class="btn btn-outline">专业咨询</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 广东外语外贸大学 -->
+                        <div class="university-slide">
+                            <div class="university-card">
+                                <div class="university-header">
+                                    <h3>广东外语外贸大学</h3>
+                                    <span class="university-tag">省重点</span>
+                                </div>
+                                <div class="university-content">
+                                    <div class="university-info">
+                                        <p class="university-desc">外语类特色大学，语言文学专业优势明显</p>
+                                        <div class="majors-list">
+                                            <h4>热门专业：</h4>
+                                            <div class="major-tags">
+                                                <span class="major-tag">英语</span>
+                                                <span class="major-tag">商务英语</span>
+                                                <span class="major-tag">国际经济与贸易</span>
+                                                <span class="major-tag">工商管理</span>
+                                                <span class="major-tag">会计学</span>
+                                                <span class="major-tag">电子商务</span>
+                                            </div>
+                                        </div>
+                                        <div class="university-features">
+                                            <div class="feature-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>学制：2.5年</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>学习形式：业余/函授</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-medal"></i>
+                                                <span>学位证书：可申请学士学位</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="university-footer">
+                                    <button class="btn btn-primary">查看招生简章</button>
+                                    <button class="btn btn-outline">专业咨询</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="university-item">
-                    <h3>暨南大学</h3>
-                    <p>综合性重点大学，专业齐全</p>
-                    <button class="btn btn-primary">查看招生简章</button>
+
+                <!-- 轮播控制按钮 -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn carousel-prev" aria-label="上一个">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn carousel-next" aria-label="下一个">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="university-item">
-                    <h3>华南师范大学</h3>
-                    <p>师范类重点大学，教育学专业优势明显</p>
-                    <button class="btn btn-primary">查看招生简章</button>
+
+                <!-- 轮播指示器 -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="第1个"></button>
+                    <button class="indicator" data-slide="1" aria-label="第2个"></button>
+                    <button class="indicator" data-slide="2" aria-label="第3个"></button>
+                    <button class="indicator" data-slide="3" aria-label="第4个"></button>
+                    <button class="indicator" data-slide="4" aria-label="第5个"></button>
                 </div>
             </div>
         </div>
@@ -285,6 +535,71 @@
                     </div>
                 </div>
                 <button class="btn btn-large">点击查看更多规划指南</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成人学历规划时间线 -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">2025年成人学历规划时间线表</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-month">1月</div>
+                    <div class="timeline-content">
+                        <h4>春季招生开始</h4>
+                        <p>网络教育报名</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">3月</div>
+                    <div class="timeline-content">
+                        <h4>自考报名</h4>
+                        <p>成考专业咨询</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">5月</div>
+                    <div class="timeline-content">
+                        <h4>自考考试</h4>
+                        <p>网教入学测试</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">6月</div>
+                    <div class="timeline-content">
+                        <h4>成考预报名</h4>
+                        <p>专业选择指导</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">8月</div>
+                    <div class="timeline-content">
+                        <h4>成考正式报名</h4>
+                        <p>现场确认</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">10月</div>
+                    <div class="timeline-content">
+                        <h4>成考统一考试</h4>
+                        <p>全国统一考试</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">11月</div>
+                    <div class="timeline-content">
+                        <h4>成考成绩查询</h4>
+                        <p>录取通知</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-month">12月</div>
+                    <div class="timeline-content">
+                        <h4>新生入学准备</h4>
+                        <p>学习计划制定</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -322,7 +637,7 @@
                 </div>
                 <div class="footer-section">
                     <h4>联系我们</h4>
-                    <p><i class="fas fa-phone"></i> 400-123-4567</p>
+                    <p><i class="fas fa-phone"></i> 18001023126</p>
                     <p><i class="fas fa-envelope"></i> 421691767@qq.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> 北京市房山区拱辰街道天星街3号楼1008</p>
                     <div class="social-contact">
@@ -440,7 +755,7 @@
                         </div>
                         <h4>微信咨询</h4>
                         <p>添加微信好友获取详细方案</p>
-                        <span class="contact-id">微信号：xuezyr2024</span>
+                        <span class="contact-id">微信号：18001023126</span>
                     </div>
                     <div class="contact-option" id="qqOption">
                         <div class="contact-icon qq">
@@ -448,7 +763,23 @@
                         </div>
                         <h4>QQ咨询</h4>
                         <p>添加QQ好友在线交流</p>
-                        <span class="contact-id">QQ：1234567890</span>
+                        <span class="contact-id">QQ：421691767</span>
+                    </div>
+                    <div class="contact-option" id="douyinOption">
+                        <div class="contact-icon douyin">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <h4>抖音咨询</h4>
+                        <p>添加抖音好友在线交流</p>
+                        <span class="contact-id">抖音号：18001023126</span>
+                    </div>
+                    <div class="contact-option" id="phoneOption">
+                        <div class="contact-icon phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4>电话咨询</h4>
+                        <p>拨打电话在线交流</p>
+                        <span class="contact-id">手机号：18001023126</span>
                     </div>
                     <div class="contact-option" id="emailOption">
                         <div class="contact-icon email">
@@ -456,7 +787,7 @@
                         </div>
                         <h4>邮件咨询</h4>
                         <p>发送邮件详细了解课程</p>
-                        <span class="contact-id">邮箱：info@xuezyr.com</span>
+                        <span class="contact-id">邮箱：421691767@qq.com</span>
                     </div>
                 </div>
             </div>
@@ -467,15 +798,20 @@
     <div id="qrcodeModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>扫码添加微信</h3>
+                <h3 id="qrModalTitle">扫码添加微信</h3>
                 <button class="modal-close" id="closeQrModal">&times;</button>
             </div>
             <div class="modal-body qrcode-body">
                 <div class="qrcode-container">
-                    <div class="qrcode-placeholder">
+                    <div id="qrcodePlaceholder" class="qrcode-placeholder">
                         <i class="fab fa-weixin"></i>
-                        <p>微信号：xuezyr2024</p>
-                        <p class="qr-tip">请添加微信好友咨询学历方案</p>
+                        <p id="qrContactInfo">微信号：18001023126</p>
+                        <p class="qr-tip" id="qrTip">请添加微信好友咨询学历方案</p>
+                    </div>
+                    <div id="qrcodeImage" class="qrcode-image" style="display: none;">
+                        <img id="qrImg" src="" alt="二维码">
+                        <p id="qrImgInfo">微信号：18001023126</p>
+                        <p class="qr-tip" id="qrImgTip">请扫码添加微信好友咨询学历方案</p>
                     </div>
                 </div>
             </div>

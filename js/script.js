@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeQrModal = document.getElementById('closeQrModal');
     const wechatOption = document.getElementById('wechatOption');
     const qqOption = document.getElementById('qqOption');
+    const douyinOption = document.getElementById('douyinOption');
+    const phoneOption = document.getElementById('phoneOption');
     const emailOption = document.getElementById('emailOption');
+    const consultationForm = document.getElementById('consultationForm');
 
     // 显示联系方式选择弹窗
     function showContactModal() {
@@ -28,8 +31,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 显示二维码弹窗
-    function showQrcodeModal() {
+    function showQrcodeModal(type, title, contactInfo, tip, imagePath) {
         hideContactModal();
+
+        // 更新弹窗内容
+        const qrModalTitle = document.getElementById('qrModalTitle');
+        const qrContactInfo = document.getElementById('qrContactInfo');
+        const qrTip = document.getElementById('qrTip');
+        const qrcodePlaceholder = document.getElementById('qrcodePlaceholder');
+        const qrcodeImage = document.getElementById('qrcodeImage');
+        const qrImg = document.getElementById('qrImg');
+        const qrImgInfo = document.getElementById('qrImgInfo');
+        const qrImgTip = document.getElementById('qrImgTip');
+
+        if (qrModalTitle) qrModalTitle.textContent = title;
+
+        if (imagePath && qrcodeImage && qrImg) {
+            // 显示实际二维码图片
+            qrImg.src = imagePath;
+            qrImgInfo.textContent = contactInfo;
+            qrImgTip.textContent = tip;
+            qrcodePlaceholder.style.display = 'none';
+            qrcodeImage.style.display = 'block';
+        } else {
+            // 显示占位符
+            qrContactInfo.textContent = contactInfo;
+            qrTip.textContent = tip;
+            qrcodeImage.style.display = 'none';
+            qrcodePlaceholder.style.display = 'block';
+        }
+
+        // 显示弹窗
         if (qrcodeModal) {
             qrcodeModal.classList.add('show');
             document.body.style.overflow = 'hidden';
@@ -77,10 +109,10 @@ document.addEventListener('DOMContentLoaded', function() {
             trackUserAction('contact_method', 'wechat');
 
             // 显示二维码弹窗
-            showQrcodeModal();
+            showQrcodeModal('wechat', '扫码添加微信', '微信号：18001023126', '请扫码添加微信好友咨询学历方案', 'images/weixin.png');
 
             // 复制微信号到剪贴板
-            copyToClipboard('xuezyr2024');
+            copyToClipboard('18001023126');
             showMessage('微信号已复制到剪贴板', 'success');
         });
     }
@@ -91,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // 记录用户选择
             trackUserAction('contact_method', 'qq');
 
-            const qqNumber = '1234567890';
+            const qqNumber = '421691767';
 
             // 尝试打开QQ
             const qqUrl = `tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=${qqNumber}&website=www.oicqzone.com`;
@@ -124,11 +156,26 @@ document.addEventListener('DOMContentLoaded', function() {
             // 记录用户选择
             trackUserAction('contact_method', 'email');
 
-            const email = 'info@xuezyr.com';
+            const email = '421691767@qq.com';
             const subject = encodeURIComponent('学历提升咨询');
+
+            // 获取用户填写的信息
+            const userInfo = JSON.parse(localStorage.getItem('userConsultationInfo') || '{}');
+            let personalInfo = '';
+
+            if (userInfo.name || userInfo.phone || userInfo.educationLevel) {
+                personalInfo = `
+
+我的个人信息：
+姓名：${userInfo.name || '未填写'}
+手机号：${userInfo.phone || '未填写'}
+学历层次：${userInfo.educationLevel || '未填写'}
+`;
+            }
+
             const body = encodeURIComponent(`您好！
 
-我想了解学历提升相关信息，请为我提供详细的学历提升方案和相关信息。
+我想了解学历提升相关信息，请为我提供详细的学历提升方案和相关信息。${personalInfo}
 
 期待您的回复，谢谢！`);
 
@@ -142,6 +189,53 @@ document.addEventListener('DOMContentLoaded', function() {
             showMessage('邮箱地址已复制，正在打开邮件客户端...', 'success');
 
             hideContactModal();
+        });
+    }
+
+    // 抖音联系方式点击
+    if (douyinOption) {
+        douyinOption.addEventListener('click', function() {
+            // 记录用户选择
+            trackUserAction('contact_method', 'douyin');
+
+            // 显示抖音二维码弹窗
+            showQrcodeModal('douyin', '扫码关注抖音', '抖音号：18001023126', '请扫码关注抖音号或点击跳转至抖音主页', 'images/douyin.png');
+
+            // 尝试打开抖音客户端和网页版
+            const douyinAppUrl = 'snssdk1128://user/profile/MS4wLjABAAAAO8RAoZHKQsEq2nS4pMB1w5y9k7kkke2YTlRQSBjDWlJ6cGG149OiAVLhfzjTSQEw';
+            const douyinWebUrl = 'https://m.douyin.com/share/user/MS4wLjABAAAAO8RAoZHKQsEq2nS4pMB1w5y9k7kkke2YTlRQSBjDWlJ6cGG149OiAVLhfzjTSQEw';
+
+            // 先尝试打开APP
+            const tempLink = document.createElement('a');
+            tempLink.href = douyinAppUrl;
+            tempLink.style.display = 'none';
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
+
+            // 延迟后打开网页版作为备选
+            setTimeout(() => {
+                window.open(douyinWebUrl, '_blank');
+            }, 1000);
+
+            // 复制抖音号
+            copyToClipboard('18001023126');
+            showMessage('抖音号已复制，正在打开抖音...', 'success');
+        });
+    }
+
+    // 电话联系方式点击
+    if (phoneOption) {
+        phoneOption.addEventListener('click', function() {
+            // 记录用户选择
+            trackUserAction('contact_method', 'phone');
+
+            // 显示手机号二维码弹窗
+            showQrcodeModal('phone', '扫码拨打电话', '手机号：18001023126', '请扫码拨打电话或直接复制手机号', 'images/tel_18001023126.png');
+
+            // 复制手机号
+            copyToClipboard('18001023126');
+            showMessage('手机号已复制到剪贴板', 'success');
         });
     }
 
@@ -323,6 +417,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 const buttonType = getButtonType(this);
                 trackUserAction('click', buttonType);
 
+                // 如果是表单提交按钮，先验证表单
+                if (this.type === 'submit' && this.closest('form')) {
+                    const form = this.closest('form');
+                    if (form.id === 'consultationForm') {
+                        // 触发表单提交事件（会执行验证）
+                        form.dispatchEvent(new Event('submit', { cancelable: true }));
+                        return; // 让表单验证逻辑处理弹窗显示
+                    }
+                }
+
                 // 显示联系方式弹窗
                 showContactModal();
             });
@@ -364,6 +468,303 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 页面加载时检查一次
     animateOnScroll();
+
+    // 表单验证功能
+    if (consultationForm) {
+        consultationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // 获取表单字段
+            const userName = document.getElementById('userName');
+            const userPhone = document.getElementById('userPhone');
+            const educationLevel = document.getElementById('educationLevel');
+
+            // 验证结果
+            let isValid = true;
+
+            // 验证姓名
+            if (!validateName(userName.value)) {
+                showFieldError(userName, '请输入正确的姓名');
+                isValid = false;
+            } else {
+                clearFieldError(userName);
+            }
+
+            // 验证手机号
+            if (!validatePhone(userPhone.value)) {
+                showFieldError(userPhone, '请输入正确的手机号');
+                isValid = false;
+            } else {
+                clearFieldError(userPhone);
+            }
+
+            // 验证学历层次
+            if (!educationLevel.value) {
+                showFieldError(educationLevel, '请选择学历层次');
+                isValid = false;
+            } else {
+                clearFieldError(educationLevel);
+            }
+
+            // 如果验证通过，存储用户信息并显示联系方式弹窗
+            if (isValid) {
+                // 存储用户信息到本地存储
+                const userInfo = {
+                    name: userName.value,
+                    phone: userPhone.value,
+                    educationLevel: educationLevel.value,
+                    timestamp: new Date().toISOString()
+                };
+
+                localStorage.setItem('userConsultationInfo', JSON.stringify(userInfo));
+
+                // 记录表单提交
+                trackUserAction('form_submit', 'consultation_form');
+
+                // 显示联系方式选择弹窗
+                showContactModal();
+
+                // 重置表单
+                consultationForm.reset();
+            }
+        });
+    }
+
+    // 表单字段验证函数
+    function validateName(name) {
+        const nameRegex = /^[\u4e00-\u9fa5a-zA-Z\s]{2,20}$/;
+        return nameRegex.test(name.trim());
+    }
+
+    function validatePhone(phone) {
+        const phoneRegex = /^1[3-9]\d{9}$/;
+        return phoneRegex.test(phone.trim());
+    }
+
+    // 显示字段错误
+    function showFieldError(field, message) {
+        const formGroup = field.parentElement;
+        const errorElement = formGroup.querySelector('.error-message');
+
+        formGroup.classList.add('error');
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
+    }
+
+    // 清除字段错误
+    function clearFieldError(field) {
+        const formGroup = field.parentElement;
+        const errorElement = formGroup.querySelector('.error-message');
+
+        formGroup.classList.remove('error');
+        if (errorElement) {
+            errorElement.textContent = '';
+        }
+    }
+
+    // 实时验证
+    const formFields = document.querySelectorAll('#consultationForm input, #consultationForm select');
+    formFields.forEach(field => {
+        field.addEventListener('blur', function() {
+            if (this.id === 'userName') {
+                if (this.value && !validateName(this.value)) {
+                    showFieldError(this, '请输入正确的姓名');
+                } else if (this.value) {
+                    clearFieldError(this);
+                }
+            } else if (this.id === 'userPhone') {
+                if (this.value && !validatePhone(this.value)) {
+                    showFieldError(this, '请输入正确的手机号');
+                } else if (this.value) {
+                    clearFieldError(this);
+                }
+            } else if (this.id === 'educationLevel') {
+                if (this.value) {
+                    clearFieldError(this);
+                }
+            }
+        });
+
+        field.addEventListener('input', function() {
+            if (this.parentElement.classList.contains('error')) {
+                clearFieldError(this);
+            }
+        });
+    });
+
+    // 院校轮播功能
+    function initUniversityCarousel() {
+        const carousel = document.querySelector('.universities-carousel');
+        if (!carousel) return;
+
+        const slides = carousel.querySelectorAll('.university-slide');
+        const indicators = carousel.querySelectorAll('.indicator');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+
+        let currentSlide = 0;
+        let isTransitioning = false;
+        let autoPlayInterval;
+
+        // 显示指定幻灯片
+        function showSlide(index, direction = 'next') {
+            if (isTransitioning || index === currentSlide) return;
+
+            isTransitioning = true;
+
+            // 更新活动幻灯片
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+
+            currentSlide = index;
+
+            // 添加过渡效果
+            setTimeout(() => {
+                slides[currentSlide].classList.add('active');
+                indicators[currentSlide].classList.add('active');
+
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 300);
+            }, 100);
+
+            // 记录用户交互
+            trackUserAction('carousel_navigate', `slide_${currentSlide}`);
+        }
+
+        // 下一张幻灯片
+        function nextSlide() {
+            const nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex, 'next');
+        }
+
+        // 上一张幻灯片
+        function prevSlide() {
+            const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prevIndex, 'prev');
+        }
+
+        // 开始自动播放
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextSlide, 5000); // 5秒切换一次
+        }
+
+        // 停止自动播放
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        }
+
+        // 绑定控制按钮事件
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                stopAutoPlay();
+                prevSlide();
+                startAutoPlay(); // 重新开始自动播放
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                stopAutoPlay();
+                nextSlide();
+                startAutoPlay(); // 重新开始自动播放
+            });
+        }
+
+        // 绑定指示器事件
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                stopAutoPlay();
+                showSlide(index);
+                startAutoPlay(); // 重新开始自动播放
+            });
+        });
+
+        // 触摸滑动支持
+        let startX = 0;
+        let startY = 0;
+        let endX = 0;
+        let endY = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            stopAutoPlay(); // 触摸时停止自动播放
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            endY = e.changedTouches[0].clientY;
+
+            const diffX = startX - endX;
+            const diffY = startY - endY;
+
+            // 确保是水平滑动而不是垂直滑动
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    nextSlide(); // 向左滑动，下一张
+                } else {
+                    prevSlide(); // 向右滑动，上一张
+                }
+            }
+
+            startAutoPlay(); // 重新开始自动播放
+        });
+
+        // 鼠标悬停控制
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+
+        // 键盘导航支持
+        document.addEventListener('keydown', (e) => {
+            if (!carousel.matches(':hover')) return; // 只有当鼠标悬停在轮播上时才响应键盘
+
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                stopAutoPlay();
+                prevSlide();
+                startAutoPlay();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                stopAutoPlay();
+                nextSlide();
+                startAutoPlay();
+            }
+        });
+
+        // 页面可见性变化时控制自动播放
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoPlay();
+            } else {
+                startAutoPlay();
+            }
+        });
+
+        // 初始化时启动自动播放
+        startAutoPlay();
+
+        // 滚动到视图中时的动画效果
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    trackUserAction('section_view', 'universities_carousel');
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        observer.observe(carousel);
+    }
+
+    // 初始化轮播
+    initUniversityCarousel();
 
     // 添加动画样式
     const style = document.createElement('style');

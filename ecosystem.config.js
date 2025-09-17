@@ -25,9 +25,9 @@ module.exports = {
   deploy: {
     production: {
       user: 'node',
-      host: 'your-server-ip',
+      host: '47.243.229.10',
       ref: 'origin/master',
-      repo: 'git@github.com:username/xuezhi-yingrui-education.git',
+      repo: 'git@github.com:yxwandroid/xzyr-education.git',
       path: '/var/www/production',
       'pre-deploy-local': '',
       'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production',

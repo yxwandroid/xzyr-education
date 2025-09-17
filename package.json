@@ -1,7 +1,7 @@
 {
-  "name": "zhiyingrui-education",
+  "name": "xuezhi-yingrui-education",
   "version": "1.0.0",
-  "description": "知盈瑞教育 - 专业学历提升平台",
+  "description": "学知盈瑞教育官方网站 - 专业学历提升平台",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -21,6 +21,6 @@
     "学历提升",
     "网站"
   ],
-  "author": "ZhiYingRui Education",
+  "author": "XueZhi YingRui Education",
   "license": "MIT"
 }

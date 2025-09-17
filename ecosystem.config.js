@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'zhiyingrui-education',
+    name: 'xuezhi-yingrui-education',
     script: 'server.js',
     instances: 1,
     autorestart: true,
@@ -27,7 +27,7 @@ module.exports = {
       user: 'node',
       host: 'your-server-ip',
       ref: 'origin/master',
-      repo: 'git@github.com:username/zhiyingrui-education.git',
+      repo: 'git@github.com:username/xuezhi-yingrui-education.git',
       path: '/var/www/production',
       'pre-deploy-local': '',
       'post-deploy': 'npm install && pm2 reload ecosystem.config.js --env production',

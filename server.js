@@ -21,7 +21,7 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`知盈瑞教育网站运行在端口 ${PORT}`);
+  console.log(`学知盈瑞教育官方网站运行在端口 ${PORT}`);
 });
 
 module.exports = app;

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学知盈瑞教育 - 专业学历提升平台</title>
+    <meta name="description" content="学知盈瑞教育专注于成人学历提升，提供自考、成考、网络教育、国家开放大学等多种学历提升方式">
+    <meta name="keywords" content="学历提升,自考,成人高考,网络教育,国家开放大学,专升本,高起专">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-brand">
+                    <img src="images/logo-horizontal.png" alt="知盈瑞教育" class="logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">首页</a></li>
+                    <li><a href="#courses" class="nav-link">课程中心</a></li>
+                    <li><a href="#about" class="nav-link">关于我们</a></li>
+                    <li><a href="#contact" class="nav-link">联系我们</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主横幅区域 -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">知盈瑞教育专注成人学历培训</h1>
+                    <p class="hero-subtitle">成就梦想，专业—站式成人学历服务，助力人生新台阶</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary">了解更多</button>
+                        <button class="btn btn-secondary">立即咨询</button>
+                    </div>
+                </div>
+                <div class="hero-form">
+                    <h3>免费获取学历方案</h3>
+                    <form class="consultation-form">
+                        <input type="text" placeholder="姓名" required>
+                        <input type="tel" placeholder="手机号" required>
+                        <select required>
+                            <option value="">选择学历层次</option>
+                            <option value="高起专">高起专</option>
+                            <option value="专升本">专升本</option>
+                            <option value="高起本">高起本</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary" id="submitFormBtn">立即获取</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务优势 -->
+    <section class="advantages">
+        <div class="container">
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>四大学历提升方式</h3>
+                    <p>自考、成考、网教、国开多种方式任您选择</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>自学考试</h3>
+                    <p>含金量高，社会认可度高，学习时间灵活</p>
+                    <button class="btn btn-outline">了解详情</button>
+                </div>
+                <div class="advantage-item">
+                    <h3>成人高考</h3>
+                    <p>入学相对简单，学习方式灵活，费用较低</p>
+                    <button class="btn btn-outline">了解详情</button>
+                </div>
+                <div class="advantage-item">
+                    <h3>网络教育</h3>
+                    <p>学习方式灵活，不受时间地点限制</p>
+                    <button class="btn btn-outline">了解详情</button>
+                </div>
+                <div class="advantage-item">
+                    <h3>国家开放大学</h3>
+                    <p>免试入学，学制短，拿证快</p>
+                    <button class="btn btn-outline">了解详情</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学历提升方式 -->
+    <section id="courses" class="education-types">
+        <div class="container">
+            <h2 class="section-title">本地次成人学历提升模式开放</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <div class="education-icon orange">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>自考</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon orange">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>成考</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon orange">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>网教</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon orange">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>国开</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon blue">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>学历三证</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon red">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>专业证书</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon red">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>教师资格</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon red">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>职业技能</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon blue">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>其他考试</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+                <div class="education-item">
+                    <div class="education-icon blue">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>技能提升</h3>
+                    <button class="btn btn-small">了解更多</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门专业 -->
+    <section class="popular-majors">
+        <div class="container">
+            <h2 class="section-title">2025年热门专业及专业招牌</h2>
+            <div class="majors-grid">
+                <div class="major-category">
+                    <h3 class="category-title">管理类</h3>
+                    <div class="major-list">
+                        <span class="major-item">工商管理</span>
+                        <span class="major-item">人力资源管理</span>
+                        <span class="major-item">行政管理</span>
+                        <span class="major-item">市场营销</span>
+                    </div>
+                    <button class="btn btn-primary">查看更多</button>
+                </div>
+                <div class="major-category">
+                    <h3 class="category-title">计算机类</h3>
+                    <div class="major-list">
+                        <span class="major-item">计算机科学与技术</span>
+                        <span class="major-item">软件工程</span>
+                        <span class="major-item">网络工程</span>
+                        <span class="major-item">信息管理</span>
+                    </div>
+                    <button class="btn btn-primary">查看更多</button>
+                </div>
+                <div class="major-category">
+                    <h3 class="category-title">经济类</h3>
+                    <div class="major-list">
+                        <span class="major-item">会计学</span>
+                        <span class="major-item">金融学</span>
+                        <span class="major-item">国际经济与贸易</span>
+                        <span class="major-item">电子商务</span>
+                    </div>
+                    <button class="btn btn-primary">查看更多</button>
+                </div>
+                <div class="major-category">
+                    <h3 class="category-title">工科类</h3>
+                    <div class="major-list">
+                        <span class="major-item">土木工程</span>
+                        <span class="major-item">电气工程</span>
+                        <span class="major-item">机械设计</span>
+                        <span class="major-item">建筑工程</span>
+                    </div>
+                    <button class="btn btn-primary">查看更多</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作院校 -->
+    <section class="partner-universities">
+        <div class="container">
+            <h2 class="section-title">2025年热门院校及专业推荐</h2>
+            <div class="universities-grid">
+                <div class="university-item">
+                    <img src="images/university1.jpg" alt="华南理工大学">
+                    <h3>华南理工大学</h3>
+                    <p>国家重点大学，工科实力强劲</p>
+                    <button class="btn btn-primary">查看招生简章</button>
+                </div>
+                <div class="university-item">
+                    <img src="images/university2.jpg" alt="暨南大学">
+                    <h3>暨南大学</h3>
+                    <p>综合性重点大学，专业齐全</p>
+                    <button class="btn btn-primary">查看招生简章</button>
+                </div>
+                <div class="university-item">
+                    <img src="images/university3.jpg" alt="华南师范大学">
+                    <h3>华南师范大学</h3>
+                    <p>师范类重点大学，教育学专业优势明显</p>
+                    <button class="btn btn-primary">查看招生简章</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学历提升规划 -->
+    <section class="education-planning">
+        <div class="container">
+            <h2 class="section-title">2025年成人学历规划指南</h2>
+            <div class="planning-content">
+                <div class="planning-list">
+                    <div class="planning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>确定学历层次和专业方向</span>
+                    </div>
+                    <div class="planning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>选择适合的学习方式</span>
+                    </div>
+                    <div class="planning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>制定学习计划和时间安排</span>
+                    </div>
+                    <div class="planning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>了解报名时间和考试安排</span>
+                    </div>
+                </div>
+                <button class="btn btn-large">点击查看更多规划指南</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="images/logo-white-horizontal.png" alt="知盈瑞教育" class="footer-logo">
+                    <p>专业的成人学历提升服务平台</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-wechat"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>学历提升</h4>
+                    <ul>
+                        <li><a href="#">自学考试</a></li>
+                        <li><a href="#">成人高考</a></li>
+                        <li><a href="#">网络教育</a></li>
+                        <li><a href="#">国家开放大学</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>热门专业</h4>
+                    <ul>
+                        <li><a href="#">工商管理</a></li>
+                        <li><a href="#">会计学</a></li>
+                        <li><a href="#">计算机科学</a></li>
+                        <li><a href="#">教育学</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p><i class="fas fa-phone"></i> 400-123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@zhiyingrui.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 广州市天河区珠江新城</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 知盈瑞教育. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 左侧专业浮动导航 -->
+    <div class="left-sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-gem"></i>
+            <span>专业</span>
+        </div>
+        <div class="sidebar-content">
+            <a href="#" class="sidebar-item">人力资源管理</a>
+            <a href="#" class="sidebar-item">行政管理</a>
+            <a href="#" class="sidebar-item">工商管理</a>
+            <a href="#" class="sidebar-item">学前教育</a>
+            <a href="#" class="sidebar-item">汉语言文学</a>
+            <a href="#" class="sidebar-item">会计学</a>
+            <a href="#" class="sidebar-item">法律</a>
+            <a href="#" class="sidebar-item">英语</a>
+            <a href="#" class="sidebar-item">金融学</a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="#" class="sidebar-consult">点击咨询</a>
+        </div>
+    </div>
+
+    <!-- 右侧学历培训报名浮动导航 -->
+    <div class="right-sidebar">
+        <div class="sidebar-header">
+            <span>学历</span>
+            <span>培训报名</span>
+        </div>
+        <div class="sidebar-content">
+            <a href="#" class="sidebar-item">大专/本科</a>
+            <a href="#" class="sidebar-item">专科修本科</a>
+            <a href="#" class="sidebar-item">高中修本科</a>
+            <a href="#" class="sidebar-item">初中修本科</a>
+            <a href="#" class="sidebar-item">低基础修本</a>
+            <a href="#" class="sidebar-item">高中修大专</a>
+            <a href="#" class="sidebar-item">初中修大专</a>
+            <a href="#" class="sidebar-item">低基础修专</a>
+            <a href="#" class="sidebar-item">专本套读</a>
+            <a href="#" class="sidebar-item">修第二学历</a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="#" class="sidebar-consult">点击咨询</a>
+        </div>
+    </div>
+
+    <!-- 悬浮咨询按钮 -->
+    <div class="floating-contact">
+        <button class="contact-btn">
+            <i class="fas fa-comments"></i>
+            <span>在线咨询</span>
+        </button>
+    </div>
+
+    <!-- 联系方式选择弹窗 -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>选择联系方式</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message">感谢您的咨询！请选择您偏好的联系方式，我们将为您提供专业的学历提升方案。</p>
+                <div class="contact-options">
+                    <div class="contact-option" id="wechatOption">
+                        <div class="contact-icon wechat">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <h4>微信咨询</h4>
+                        <p>添加微信好友获取详细方案</p>
+                        <span class="contact-id">微信号：xuezyr2024</span>
+                    </div>
+                    <div class="contact-option" id="qqOption">
+                        <div class="contact-icon qq">
+                            <i class="fab fa-qq"></i>
+                        </div>
+                        <h4>QQ咨询</h4>
+                        <p>添加QQ好友在线交流</p>
+                        <span class="contact-id">QQ：1234567890</span>
+                    </div>
+                    <div class="contact-option" id="emailOption">
+                        <div class="contact-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>邮件咨询</h4>
+                        <p>发送邮件详细了解课程</p>
+                        <span class="contact-id">邮箱：info@xuezyr.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 微信二维码弹窗 -->
+    <div id="qrcodeModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>扫码添加微信</h3>
+                <button class="modal-close" id="closeQrModal">&times;</button>
+            </div>
+            <div class="modal-body qrcode-body">
+                <div class="qrcode-container">
+                    <div class="qrcode-placeholder">
+                        <i class="fab fa-weixin"></i>
+                        <p>微信号：xuezyr2024</p>
+                        <p class="qr-tip">请添加微信好友咨询学历方案</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

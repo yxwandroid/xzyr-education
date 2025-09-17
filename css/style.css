@@ -1213,3 +1213,125 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-color);
 }
+
+/* 社交媒体联系方式样式 */
+.social-contact {
+    margin: 1.5rem 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-item:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+    width: 24px;
+    margin-right: 0.8rem;
+    color: var(--primary-color);
+}
+
+.contact-item .fab.fa-weixin {
+    color: #00c851;
+}
+
+.contact-item .fab.fa-tiktok {
+    color: #000000;
+}
+
+.contact-item .fab.fa-qq {
+    color: #00aced;
+}
+
+.contact-item span {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* 社交媒体二维码链接样式 */
+.social-qr-codes {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.qr-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.qr-link:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: white;
+}
+
+.qr-link i {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+/* 抖音主页链接样式 */
+.douyin-link {
+    margin-top: 1rem;
+}
+
+.douyin-link a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, #000000, #333333);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.douyin-link a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: white;
+}
+
+.douyin-link a i {
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .social-qr-codes {
+        justify-content: center;
+    }
+
+    .qr-link {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .douyin-link {
+        text-align: center;
+    }
+
+    .contact-item {
+        font-size: 0.85rem;
+    }
+}

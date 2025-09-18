@@ -66,26 +66,9 @@
                                 <span>快速获取证书</span>
                             </div>
                         </div>
-                        <form id="consultationForm" class="consultation-form">
-                            <div class="form-group">
-                                <input type="text" id="userName" name="userName" placeholder="请输入您的姓名" required>
-                                <span class="error-message"></span>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" id="userPhone" name="userPhone" placeholder="请输入您的手机号" required>
-                                <span class="error-message"></span>
-                            </div>
-                            <div class="form-group">
-                                <select id="educationLevel" name="educationLevel" required>
-                                    <option value="">选择学历层次</option>
-                                    <option value="高起专">高起专</option>
-                                    <option value="专升本">专升本</option>
-                                    <option value="高起本">高起本</option>
-                                </select>
-                                <span class="error-message"></span>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-large consultation-btn">立即获取</button>
-                        </form>
+                        <div class="consultation-actions">
+                            <button type="button" class="btn btn-primary btn-large consultation-btn">立即获取</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -604,6 +587,89 @@
         </div>
     </section>
 
+    <!-- 快速咨询区域 -->
+    <section class="quick-consultation">
+        <div class="container">
+            <h2 class="section-title">快速咨询</h2>
+            <p class="section-subtitle">专业学历提升咨询，多种联系方式任您选择</p>
+
+            <!-- 联系方式一行展示 -->
+            <div class="contact-row-layout">
+                <div class="contact-item-card">
+                    <div class="contact-header">
+                        <div class="method-icon wechat">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <div class="method-info">
+                            <h3>微信号</h3>
+                            <p>18001023126</p>
+                        </div>
+                    </div>
+                    <div class="qr-section">
+                        <img src="images/weixin.png" alt="微信二维码" class="qr-code">
+                        <p>微信二维码</p>
+                    </div>
+                </div>
+
+                <div class="contact-item-card">
+                    <div class="contact-header">
+                        <div class="method-icon douyin">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <div class="method-info">
+                            <h3>抖音号</h3>
+                            <p>18001023126</p>
+                        </div>
+                    </div>
+                    <div class="qr-section">
+                        <img src="images/douyin.png" alt="抖音二维码" class="qr-code">
+                        <p>抖音二维码</p>
+                    </div>
+                </div>
+
+                <div class="contact-item-card">
+                    <div class="contact-header">
+                        <div class="method-icon qq">
+                            <i class="fab fa-qq"></i>
+                        </div>
+                        <div class="method-info">
+                            <h3>QQ号</h3>
+                            <p>421691767</p>
+                        </div>
+                    </div>
+                    <div class="qr-section">
+                        <img src="images/qq.png" alt="QQ二维码" class="qr-code">
+                        <p>QQ二维码</p>
+                    </div>
+                </div>
+
+                <div class="contact-item-card">
+                    <div class="contact-header">
+                        <div class="method-icon phone">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="method-info">
+                            <h3>手机号</h3>
+                            <p>18001023126</p>
+                        </div>
+                    </div>
+                    <div class="qr-section">
+                        <img src="images/tel_18001023126.png" alt="手机号二维码" class="qr-code">
+                        <p>手机号二维码</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 抖音主页链接 -->
+            <div class="douyin-homepage-section">
+                <a href="https://m.douyin.com/share/user/MS4wLjABAAAAO8RAoZHKQsEq2nS4pMB1w5y9k7kkke2YTlRQSBjDWlJ6cGG149OiAVLhfzjTSQEw" target="_blank" class="douyin-homepage-link">
+                    <i class="fab fa-tiktok"></i>
+                    <span>访问抖音主页</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- 底部 -->
     <footer class="footer">
         <div class="container">
@@ -611,11 +677,6 @@
                 <div class="footer-section">
                     <img src="images/logo-white-horizontal.png" alt="学知盈瑞教育" class="footer-logo">
                     <p>专业的成人学历提升服务平台</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-wechat"></i></a>
-                        <a href="#"><i class="fab fa-qq"></i></a>
-                        <a href="#"><i class="fab fa-weibo"></i></a>
-                    </div>
                 </div>
                 <div class="footer-section">
                     <h4>学历提升</h4>
@@ -640,44 +701,6 @@
                     <p><i class="fas fa-phone"></i> 18001023126</p>
                     <p><i class="fas fa-envelope"></i> 421691767@qq.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> 北京市房山区拱辰街道天星街3号楼1008</p>
-                    <div class="social-contact">
-                        <div class="contact-item">
-                            <i class="fab fa-weixin"></i>
-                            <span>微信号：18001023126</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-tiktok"></i>
-                            <span>抖音号：18001023126</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-qq"></i>
-                            <span>QQ号：421691767</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>手机号：18001023126</span>
-                        </div>
-                    </div>
-                    <div class="social-qr-codes">
-                        <a href="#" class="qr-link" data-type="weixin">
-                            <i class="fab fa-weixin"></i>
-                            <span>微信二维码</span>
-                        </a>
-                        <a href="#" class="qr-link" data-type="qq">
-                            <i class="fab fa-qq"></i>
-                            <span>QQ二维码</span>
-                        </a>
-                        <a href="#" class="qr-link" data-type="douyin">
-                            <i class="fab fa-tiktok"></i>
-                            <span>抖音二维码</span>
-                        </a>
-                    </div>
-                    <div class="douyin-link">
-                        <a href="https://m.douyin.com/share/user/MS4wLjABAAAAO8RAoZHKQsEq2nS4pMB1w5y9k7kkke2YTlRQSBjDWlJ6cGG149OiAVLhfzjTSQEw" target="_blank">
-                            <i class="fab fa-tiktok"></i>
-                            <span>抖音主页</span>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -742,12 +765,7 @@
     <!-- 联系方式选择弹窗 -->
     <div id="contactModal" class="modal-overlay">
         <div class="modal-content">
-            <div class="modal-header">
-                <h3>选择联系方式</h3>
-                <button class="modal-close" id="closeModal">&times;</button>
-            </div>
             <div class="modal-body">
-                <p class="modal-message">感谢您的咨询！请选择您偏好的联系方式，我们将为您提供专业的学历提升方案。</p>
                 <div class="contact-options">
                     <div class="contact-option" id="wechatOption">
                         <div class="contact-icon wechat">
@@ -780,14 +798,6 @@
                         <h4>电话咨询</h4>
                         <p>拨打电话在线交流</p>
                         <span class="contact-id">手机号：18001023126</span>
-                    </div>
-                    <div class="contact-option" id="emailOption">
-                        <div class="contact-icon email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h4>邮件咨询</h4>
-                        <p>发送邮件详细了解课程</p>
-                        <span class="contact-id">邮箱：421691767@qq.com</span>
                     </div>
                 </div>
             </div>

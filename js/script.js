@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const douyinOption = document.getElementById('douyinOption');
     const phoneOption = document.getElementById('phoneOption');
     const emailOption = document.getElementById('emailOption');
-    const consultationForm = document.getElementById('consultationForm');
 
     // 显示联系方式选择弹窗
     function showContactModal() {
@@ -159,23 +158,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = '421691767@qq.com';
             const subject = encodeURIComponent('学历提升咨询');
 
-            // 获取用户填写的信息
-            const userInfo = JSON.parse(localStorage.getItem('userConsultationInfo') || '{}');
-            let personalInfo = '';
-
-            if (userInfo.name || userInfo.phone || userInfo.educationLevel) {
-                personalInfo = `
-
-我的个人信息：
-姓名：${userInfo.name || '未填写'}
-手机号：${userInfo.phone || '未填写'}
-学历层次：${userInfo.educationLevel || '未填写'}
-`;
-            }
-
             const body = encodeURIComponent(`您好！
 
-我想了解学历提升相关信息，请为我提供详细的学历提升方案和相关信息。${personalInfo}
+我想了解学历提升相关信息，请为我提供详细的学历提升方案和相关信息。
 
 期待您的回复，谢谢！`);
 
@@ -417,15 +402,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const buttonType = getButtonType(this);
                 trackUserAction('click', buttonType);
 
-                // 如果是表单提交按钮，先验证表单
-                if (this.type === 'submit' && this.closest('form')) {
-                    const form = this.closest('form');
-                    if (form.id === 'consultationForm') {
-                        // 触发表单提交事件（会执行验证）
-                        form.dispatchEvent(new Event('submit', { cancelable: true }));
-                        return; // 让表单验证逻辑处理弹窗显示
-                    }
-                }
 
                 // 显示联系方式弹窗
                 showContactModal();
@@ -469,129 +445,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 页面加载时检查一次
     animateOnScroll();
 
-    // 表单验证功能
-    if (consultationForm) {
-        consultationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
 
-            // 获取表单字段
-            const userName = document.getElementById('userName');
-            const userPhone = document.getElementById('userPhone');
-            const educationLevel = document.getElementById('educationLevel');
-
-            // 验证结果
-            let isValid = true;
-
-            // 验证姓名
-            if (!validateName(userName.value)) {
-                showFieldError(userName, '请输入正确的姓名');
-                isValid = false;
-            } else {
-                clearFieldError(userName);
-            }
-
-            // 验证手机号
-            if (!validatePhone(userPhone.value)) {
-                showFieldError(userPhone, '请输入正确的手机号');
-                isValid = false;
-            } else {
-                clearFieldError(userPhone);
-            }
-
-            // 验证学历层次
-            if (!educationLevel.value) {
-                showFieldError(educationLevel, '请选择学历层次');
-                isValid = false;
-            } else {
-                clearFieldError(educationLevel);
-            }
-
-            // 如果验证通过，存储用户信息并显示联系方式弹窗
-            if (isValid) {
-                // 存储用户信息到本地存储
-                const userInfo = {
-                    name: userName.value,
-                    phone: userPhone.value,
-                    educationLevel: educationLevel.value,
-                    timestamp: new Date().toISOString()
-                };
-
-                localStorage.setItem('userConsultationInfo', JSON.stringify(userInfo));
-
-                // 记录表单提交
-                trackUserAction('form_submit', 'consultation_form');
-
-                // 显示联系方式选择弹窗
-                showContactModal();
-
-                // 重置表单
-                consultationForm.reset();
-            }
-        });
-    }
-
-    // 表单字段验证函数
-    function validateName(name) {
-        const nameRegex = /^[\u4e00-\u9fa5a-zA-Z\s]{2,20}$/;
-        return nameRegex.test(name.trim());
-    }
-
-    function validatePhone(phone) {
-        const phoneRegex = /^1[3-9]\d{9}$/;
-        return phoneRegex.test(phone.trim());
-    }
-
-    // 显示字段错误
-    function showFieldError(field, message) {
-        const formGroup = field.parentElement;
-        const errorElement = formGroup.querySelector('.error-message');
-
-        formGroup.classList.add('error');
-        if (errorElement) {
-            errorElement.textContent = message;
-        }
-    }
-
-    // 清除字段错误
-    function clearFieldError(field) {
-        const formGroup = field.parentElement;
-        const errorElement = formGroup.querySelector('.error-message');
-
-        formGroup.classList.remove('error');
-        if (errorElement) {
-            errorElement.textContent = '';
-        }
-    }
-
-    // 实时验证
-    const formFields = document.querySelectorAll('#consultationForm input, #consultationForm select');
-    formFields.forEach(field => {
-        field.addEventListener('blur', function() {
-            if (this.id === 'userName') {
-                if (this.value && !validateName(this.value)) {
-                    showFieldError(this, '请输入正确的姓名');
-                } else if (this.value) {
-                    clearFieldError(this);
-                }
-            } else if (this.id === 'userPhone') {
-                if (this.value && !validatePhone(this.value)) {
-                    showFieldError(this, '请输入正确的手机号');
-                } else if (this.value) {
-                    clearFieldError(this);
-                }
-            } else if (this.id === 'educationLevel') {
-                if (this.value) {
-                    clearFieldError(this);
-                }
-            }
-        });
-
-        field.addEventListener('input', function() {
-            if (this.parentElement.classList.contains('error')) {
-                clearFieldError(this);
-            }
-        });
-    });
 
     // 院校轮播功能
     function initUniversityCarousel() {
@@ -619,15 +473,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             currentSlide = index;
 
-            // 添加过渡效果
-            setTimeout(() => {
-                slides[currentSlide].classList.add('active');
-                indicators[currentSlide].classList.add('active');
+            // 计算transform值
+            const translateX = -currentSlide * 20; // 每个幻灯片占20%
+            const carouselWrapper = carousel.querySelector('.carousel-wrapper');
 
-                setTimeout(() => {
-                    isTransitioning = false;
-                }, 300);
-            }, 100);
+            if (carouselWrapper) {
+                carouselWrapper.style.transform = `translateX(${translateX}%)`;
+            }
+
+            // 更新活动状态
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
 
             // 记录用户交互
             trackUserAction('carousel_navigate', `slide_${currentSlide}`);
@@ -647,7 +507,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 开始自动播放
         function startAutoPlay() {
-            autoPlayInterval = setInterval(nextSlide, 5000); // 5秒切换一次
+            autoPlayInterval = setInterval(nextSlide, 8000); // 8秒切换一次
         }
 
         // 停止自动播放
@@ -744,6 +604,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 startAutoPlay();
             }
         });
+
+        // 初始化第一张幻灯片
+        if (slides.length > 0 && indicators.length > 0) {
+            showSlide(0);
+        }
 
         // 初始化时启动自动播放
         startAutoPlay();

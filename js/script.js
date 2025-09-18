@@ -387,6 +387,12 @@ document.addEventListener('DOMContentLoaded', function() {
         '.sidebar-consult',
         // 侧边栏专业链接
         '.sidebar-item',
+        // 顶部导航按钮
+        '.nav-btn',
+        // 顶部导航链接（资格证书、关于我们、联系我们）
+        '.nav-link[href="#certificates"]',
+        '.nav-link[href="#about"]',
+        '.nav-link[href="#contact"]',
         // 底部链接（可选）
         '.footer-section a[href="#"]'
     ];
@@ -421,6 +427,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (button.classList.contains('contact-btn')) return 'floating_contact';
         if (button.classList.contains('sidebar-consult')) return 'sidebar_consult';
         if (button.classList.contains('sidebar-item')) return 'sidebar_major';
+        if (button.classList.contains('nav-btn')) return 'nav_button';
+        if (button.classList.contains('nav-link') && button.getAttribute('href') === '#certificates') return 'nav_certificates';
+        if (button.classList.contains('nav-link') && button.getAttribute('href') === '#about') return 'nav_about';
+        if (button.classList.contains('nav-link') && button.getAttribute('href') === '#contact') return 'nav_contact';
         if (button.closest('.footer-section')) return 'footer_link';
         return 'other_button';
     }

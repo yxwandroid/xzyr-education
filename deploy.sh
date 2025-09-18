@@ -4,11 +4,20 @@
 
 echo "开始部署学知盈瑞教育官方网站..."
 
+# 拉取最新代码
+echo "拉取最新代码..."
+git pull origin master
+
 # 检查是否安装了pm2
 if ! command -v pm2 &> /dev/null; then
     echo "PM2 未安装，正在安装..."
     npm install -g pm2
 fi
+
+# 清除缓存
+echo "清除缓存..."
+npm cache clean --force
+pm2 flush 2>/dev/null || true
 
 # 安装依赖
 echo "安装项目依赖..."

@@ -6,8 +6,8 @@
     <title>学知盈瑞教育官方网站 - 专业学历提升平台</title>
     <meta name="description" content="学知盈瑞教育官方网站专注于成人学历提升，提供自考、成考、网络教育、国家开放大学等多种学历提升方式">
     <meta name="keywords" content="学历提升,自考,成人高考,网络教育,国家开放大学,专升本,高起专">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
 </head>
 <body>
     <!-- 顶部导航栏 -->
@@ -828,6 +828,29 @@
         </div>
     </div>
 
+    <script>
+        // CSS加载检查
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查CSS是否正确加载
+            var testElement = document.createElement('div');
+            testElement.className = 'hero';
+            testElement.style.position = 'absolute';
+            testElement.style.top = '-9999px';
+            document.body.appendChild(testElement);
+
+            var computed = window.getComputedStyle(testElement);
+            if (computed.background === '' || computed.background === 'rgba(0, 0, 0, 0)') {
+                console.error('CSS文件可能未正确加载');
+                // 尝试重新加载CSS
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = './css/style.css';
+                document.head.appendChild(link);
+            }
+            document.body.removeChild(testElement);
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>

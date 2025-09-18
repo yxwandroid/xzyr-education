@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务端调试检查</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .check { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <h1>服务端部署检查</h1>
+
+    <div id="css-check" class="check info">正在检查CSS文件...</div>
+    <div id="js-check" class="check info">正在检查JS文件...</div>
+    <div id="images-check" class="check info">正在检查图片文件...</div>
+    <div id="paths-check" class="check info">正在检查路径...</div>
+
+    <script>
+        // 检查CSS文件
+        function checkCSS() {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'css/style.css';
+            link.onload = function() {
+                document.getElementById('css-check').className = 'check success';
+                document.getElementById('css-check').textContent = '✓ CSS文件加载成功';
+            };
+            link.onerror = function() {
+                document.getElementById('css-check').className = 'check error';
+                document.getElementById('css-check').textContent = '✗ CSS文件加载失败 - 检查文件路径和权限';
+            };
+            document.head.appendChild(link);
+        }
+
+        // 检查JS文件
+        function checkJS() {
+            var script = document.createElement('script');
+            script.src = 'js/script.js';
+            script.onload = function() {
+                document.getElementById('js-check').className = 'check success';
+                document.getElementById('js-check').textContent = '✓ JS文件加载成功';
+            };
+            script.onerror = function() {
+                document.getElementById('js-check').className = 'check error';
+                document.getElementById('js-check').textContent = '✗ JS文件加载失败 - 检查文件路径和权限';
+            };
+            document.head.appendChild(script);
+        }
+
+        // 检查图片文件
+        function checkImages() {
+            var img = new Image();
+            img.onload = function() {
+                document.getElementById('images-check').className = 'check success';
+                document.getElementById('images-check').textContent = '✓ 图片文件可访问';
+            };
+            img.onerror = function() {
+                document.getElementById('images-check').className = 'check error';
+                document.getElementById('images-check').textContent = '✗ 图片文件无法访问 - 检查images文件夹权限';
+            };
+            img.src = 'images/logo-horizontal.png';
+        }
+
+        // 检查路径
+        function checkPaths() {
+            var info = '当前页面URL: ' + window.location.href + '<br>';
+            info += '当前协议: ' + window.location.protocol + '<br>';
+            info += '用户代理: ' + navigator.userAgent;
+            document.getElementById('paths-check').innerHTML = info;
+            document.getElementById('paths-check').className = 'check info';
+        }
+
+        // 运行所有检查
+        document.addEventListener('DOMContentLoaded', function() {
+            checkCSS();
+            checkJS();
+            checkImages();
+            checkPaths();
+        });
+    </script>
+</body>
+</html>

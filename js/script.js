@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '.nav-btn',
         // 顶部导航链接（资格证书、关于我们、联系我们）
         '.nav-link[href="#certificates"]',
-        '.nav-link[href="#about"]',
+        // '.nav-link[href="#about"]',
         '.nav-link[href="#contact"]',
         // 底部链接（可选）
         '.footer-section a[href="#"]'
